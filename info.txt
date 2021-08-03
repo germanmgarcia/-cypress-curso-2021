@@ -1,5 +1,0 @@
-Curso de Cypress
-
-1- npm init
-
-2- yarn add cypress --dev --> Instalación
