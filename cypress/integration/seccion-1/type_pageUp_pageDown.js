@@ -9,7 +9,7 @@ describe("Ejemplo de Type pageUp, pageDown", () => {
     cy.get("#userName").type("{pageup}");
   });
 
-  it("Type pageDown", () => {
+  it.only("Type pageDown", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1500);
