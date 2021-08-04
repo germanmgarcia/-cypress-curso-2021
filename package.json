@@ -9,6 +9,7 @@
   "author": "Germán García",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^8.1.0"
+    "cypress": "^8.1.0",
+    "cypress-plugin-tab": "^1.0.5"
   }
 }

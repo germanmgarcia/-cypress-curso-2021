@@ -6,3 +6,5 @@
 2. ``yarn add cypress --dev``
 
 3. ``yarn cypress open``
+
+4. ``yarn add -D cypress-plugin-tab``
