@@ -21,7 +21,7 @@ describe("Tipos de Selectores", () => {
     cy.get("[placeholder='Full Name']").should("be.visible").type("Juan Peréz");
   });
 
-  it.only("Selector por Xpath", () => {
+  it("Selector por Xpath", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -35,5 +35,16 @@ describe("Tipos de Selectores", () => {
     cy.xpath("//textarea[@id='currentAddress']")
       .should("be.visible")
       .type("Demo de la dirección");
+  });
+
+  it.only("Selector por Contains", () => {
+    cy.visit("https://demoqa.com/automation-practice-form");
+    cy.title().should("eq", "ToolsQA");
+    cy.wait(1000);
+
+    //selector por Contains
+    cy.get(".custom-control-label").contains("Female").click();
+    cy.wait(1000);
+    cy.get(".custom-control-label").contains("Other").click();
   });
 });

@@ -10,3 +10,5 @@
 4. ``yarn add -D cypress-plugin-tab``
 
 5. ``yarn add cypress-xpath --dev``
+
+5. TruePath / ChroPath
