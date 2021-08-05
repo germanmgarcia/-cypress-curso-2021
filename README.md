@@ -8,3 +8,5 @@
 3. ``yarn cypress open``
 
 4. ``yarn add -D cypress-plugin-tab``
+
+5. ``yarn add cypress-xpath --dev``
