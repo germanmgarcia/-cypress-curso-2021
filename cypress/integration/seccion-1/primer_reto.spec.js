@@ -7,6 +7,7 @@ describe("Primer Reto", () => {
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
 
+    //buscar
     cy.get("#searchBox").should("be.visible").type("Cierra");
     cy.wait(1000);
     cy.get("#searchBox").should("be.visible").clear();
@@ -29,8 +30,21 @@ describe("Primer Reto", () => {
       .type("Sistemas");
     cy.get("#submit").should("be.visible").click();
 
+    //buscar
     cy.get("#searchBox").should("be.visible").type("Germán");
     cy.wait(1000);
     cy.get("#searchBox").should("be.visible").clear();
+
+    //editar campo
+    cy.get("#edit-record-2").should("be.visible").click();
+    cy.wait(1000);
+    cy.get("#age").should("be.visible").clear().type("50");
+    cy.wait(1500);
+    cy.get("#salary").should("be.visible").clear().type("50000");
+    cy.get("#submit").should("be.visible").click();
+
+    //borrar campo
+    cy.wait(1500);
+    cy.get("#delete-record-2").should("be.visible").click();
   });
 });
