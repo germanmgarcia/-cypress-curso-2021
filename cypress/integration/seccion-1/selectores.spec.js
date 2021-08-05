@@ -37,7 +37,7 @@ describe("Tipos de Selectores", () => {
       .type("Demo de la dirección");
   });
 
-  it.only("Selector por Contains", () => {
+  it("Selector por Contains", () => {
     cy.visit("https://demoqa.com/automation-practice-form");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -46,5 +46,14 @@ describe("Tipos de Selectores", () => {
     cy.get(".custom-control-label").contains("Female").click();
     cy.wait(1000);
     cy.get(".custom-control-label").contains("Other").click();
+  });
+
+  it.only("Selector por copy_selector", () => {
+    cy.visit("https://demoqa.com/automation-practice-form");
+    cy.title().should("eq", "ToolsQA");
+    cy.wait(1000);
+
+    //selector por Contains
+    cy.get("#userNumber").should("be.visible").type("45879621");
   });
 });
