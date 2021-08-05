@@ -29,7 +29,7 @@ describe("Nueva Sección Checkbox", () => {
       .should("be.checked");
   });
 
-  it.only("Check uno click", () => {
+  it("Check uno click", () => {
     cy.visit("https://www.seleniumeasy.com/test/basic-checkbox-demo.html");
     cy.title().should(
       "eq",
@@ -39,5 +39,17 @@ describe("Nueva Sección Checkbox", () => {
 
     cy.get("#isAgeSelected").click();
     cy.xpath("(//input[contains(@type,'checkbox')])[5]").click();
+  });
+
+  it.only("Radio Button", () => {
+    cy.visit("https://www.seleniumeasy.com/test/basic-radiobutton-demo.html");
+    cy.title().should(
+      "eq",
+      "Selenium Easy Demo - Radio buttons demo for Automation"
+    );
+    cy.wait(1000);
+
+    cy.get(".panel-body > :nth-child(3) > input").check();
+    cy.get(".panel-body > :nth-child(2) > input").click();
   });
 });
