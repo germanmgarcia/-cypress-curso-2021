@@ -1,5 +1,5 @@
-describe("", () => {
-  it("", () => {
+describe("Sección Selects", () => {
+  it("Select uno", () => {
     cy.visit(
       "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html"
     );
@@ -15,5 +15,14 @@ describe("", () => {
       .should("be.visible")
       .select("Saturday")
       .should("have.value", "Saturday");
+  });
+
+  it.only("Select autocompletado", () => {
+    cy.visit("https://www.google.com");
+    cy.title().should("eq", "Google");
+    cy.wait(1000);
+
+    cy.get("[name='q']").should("be.visible").type("Ferrai").type("{enter}");
+    cy.wait(1500);
   });
 });
