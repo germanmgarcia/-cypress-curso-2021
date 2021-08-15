@@ -17,12 +17,24 @@ describe("Sección Selects", () => {
       .should("have.value", "Saturday");
   });
 
-  it.only("Select autocompletado", () => {
+  it("Select autocompletado", () => {
     cy.visit("https://www.google.com");
     cy.title().should("eq", "Google");
     cy.wait(1000);
 
     cy.get("[name='q']").should("be.visible").type("Ferrai").type("{enter}");
     cy.wait(1500);
+  });
+
+  it.only("Select Multi-select", () => {
+    cy.visit(
+      "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy Demo - Automate All Scenarios");
+    cy.wait(1000);
+
+    cy.get("#multi-select")
+      .should("be.visible")
+      .select(["California", "Ohio", "Washington"]);
   });
 });
