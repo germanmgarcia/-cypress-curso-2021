@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />;
+
 describe("Sección Selects", () => {
   it("Select uno", () => {
     cy.visit(
@@ -26,7 +28,7 @@ describe("Sección Selects", () => {
     cy.wait(1500);
   });
 
-  it.only("Select Multi-select", () => {
+  it("Select Multi-select", () => {
     cy.visit(
       "https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html"
     );
@@ -35,6 +37,9 @@ describe("Sección Selects", () => {
 
     cy.get("#multi-select")
       .should("be.visible")
-      .select(["California", "Ohio", "Washington"]);
+      .select(["California", "Ohio", "Washington"])
+      .then(() => {
+        cy.get("#printMe").should("be.visible").click();
+      });
   });
 });
