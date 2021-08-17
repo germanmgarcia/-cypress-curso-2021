@@ -102,7 +102,7 @@ describe("Asserts", () => {
       });
   });
 
-  it.only("Assert not.have.class y la función and", () => {
+  it("Assert not.have.class y la función and", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -113,5 +113,15 @@ describe("Asserts", () => {
       .then(() => {
         cy.get("#userName").type("Germán");
       });
+  });
+
+  it.only("Assert length el css", () => {
+    cy.visit("https://www.seleniumeasy.com/test/table-pagination-demo.html");
+    cy.title().should("eq", "Selenium Easy - Table with Pagination Demo");
+    cy.wait(1000);
+
+    cy.get("#myTable >tr >td")
+      .should("have.length", 91)
+      .and("have.css", "padding", "8px");
   });
 });
