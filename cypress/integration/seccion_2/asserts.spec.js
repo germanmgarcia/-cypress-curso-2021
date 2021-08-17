@@ -76,7 +76,7 @@ describe("Asserts", () => {
       });
   });
 
-  it.only("Assert have.class más then", () => {
+  it("Assert have.class más then", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -84,6 +84,19 @@ describe("Asserts", () => {
     cy.get("#userName")
       .should("be.visible")
       .should("have.class", "mr-sm-2")
+      .then(() => {
+        cy.get("#userName").type("Germán");
+      });
+  });
+
+  it.only("Assert have.class y la función and", () => {
+    cy.visit("https://demoqa.com/text-box");
+    cy.title().should("eq", "ToolsQA");
+    cy.wait(1000);
+
+    cy.get("#userName")
+      .should("be.visible")
+      .and("have.class", "mr-sm-2")
       .then(() => {
         cy.get("#userName").type("Germán");
       });
