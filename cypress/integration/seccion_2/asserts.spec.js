@@ -89,7 +89,7 @@ describe("Asserts", () => {
       });
   });
 
-  it.only("Assert have.class y la función and", () => {
+  it("Assert have.class y la función and", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -97,6 +97,19 @@ describe("Asserts", () => {
     cy.get("#userName")
       .should("be.visible")
       .and("have.class", "mr-sm-2")
+      .then(() => {
+        cy.get("#userName").type("Germán");
+      });
+  });
+
+  it.only("Assert not.have.class y la función and", () => {
+    cy.visit("https://demoqa.com/text-box");
+    cy.title().should("eq", "ToolsQA");
+    cy.wait(1000);
+
+    cy.get("#userName")
+      .should("be.visible")
+      .and("not.have.class", "mr-sm-22")
       .then(() => {
         cy.get("#userName").type("Germán");
       });
