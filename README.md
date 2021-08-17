@@ -20,3 +20,5 @@
 - ``yarn cypress run --header`` Correrlo desde el navegador
 
 - ``yarn cypress run --browser chrome`` Correr todos lo ejemplo con el navegador chrome
+
+- ``yarn cypress run --spec "cypress\integration\seccion_2\asserts.spec.js"`` Correr una prueba en específico
