@@ -12,3 +12,7 @@
 5. ``yarn add cypress-xpath --dev``
 
 5. TruePath / ChroPath
+
+## -sin yarn
+
+1. ``node_modules/.bin/cypress run``
