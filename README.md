@@ -1,4 +1,4 @@
-# -cypress-curso-2021
+# cypress-curso-2021
 
 
 1. ``npm init``
@@ -13,7 +13,7 @@
 
 5. TruePath / ChroPath
 
-## -consola cypress
+## consola cypress
 
 - ``node_modules/.bin/cypress run`` Correrlo sin el navegador
 
@@ -22,3 +22,5 @@
 - ``yarn cypress run --browser chrome`` Correr todos lo ejemplo con el navegador chrome
 
 - ``yarn cypress run --spec "cypress\integration\seccion_2\asserts.spec.js"`` Correr una prueba en específico
+
+- ``yarn cypress run --spec "cypress\integration\seccion_1\*"`` Correr todas las pruebas de una sola sección
