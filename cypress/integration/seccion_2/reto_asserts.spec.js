@@ -2,7 +2,7 @@
 
 describe("Reto asserts", () => {
   it("Reto Asserts", () => {
-    const tiempo = 1000;
+    const tiempo = 1300;
     cy.visit("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
     cy.title().should(
       "eq",
@@ -13,9 +13,9 @@ describe("Reto asserts", () => {
     //Eliminando ventana
     cy.get(".at-cm-no-button").should("be.visible").click({ force: true });
 
-    const a = 10;
-    const b = 20 + a;
-    const total = a + b;
+    let a = 5;
+    let b = 5;
+    let total = a + b;
 
     cy.get("#sum1")
       .should("be.visible")
@@ -36,6 +36,41 @@ describe("Reto asserts", () => {
           cy.log("Son iguales");
         } else {
           cy.log("El resultado es incorrecto");
+        }
+        if (res > 50) {
+          a -= 10;
+          b -= 10;
+          cy.get("#sum1")
+            .should("be.visible")
+            .and("have.class", "form-control")
+            .clear()
+            .type(a);
+          cy.wait(tiempo);
+
+          cy.get("#sum2")
+            .should("be.visible")
+            .and("have.class", "form-control")
+            .clear()
+            .type(b);
+          cy.wait(tiempo);
+          cy.contains("[type='button']", "Get Total").click();
+        } else {
+          a += 5;
+          b += 5;
+          cy.get("#sum1")
+            .should("be.visible")
+            .and("have.class", "form-control")
+            .clear()
+            .type(a);
+          cy.wait(tiempo);
+
+          cy.get("#sum2")
+            .should("be.visible")
+            .and("have.class", "form-control")
+            .clear()
+            .type(b);
+          cy.wait(tiempo);
+          cy.contains("[type='button']", "Get Total").click();
         }
       });
   });
