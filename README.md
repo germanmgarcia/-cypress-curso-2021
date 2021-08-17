@@ -13,6 +13,8 @@
 
 5. TruePath / ChroPath
 
-## -sin yarn
+## -consola cypress
 
-1. ``node_modules/.bin/cypress run``
+- ``node_modules/.bin/cypress run`` Correrlo sin el navegador
+
+- ```yarn cypress run --header`` Correrlo desde el navegador
