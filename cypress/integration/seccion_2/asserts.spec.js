@@ -49,7 +49,7 @@ describe("Asserts", () => {
     });
   });
 
-  it.only("Assert contain.text y have.text", () => {
+  it("Assert contain.text y have.text", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
@@ -60,5 +60,19 @@ describe("Asserts", () => {
 
     cy.get("#name").should("have.text", "Name:Germán");
     cy.get("#name").should("contain.text", "Germán");
+  });
+
+  it.only("Assert have.value más then", () => {
+    cy.visit("https://demoqa.com/text-box");
+    cy.title().should("eq", "ToolsQA");
+    cy.wait(1000);
+
+    cy.get("#userName").should("be.visible").type("Germán");
+    cy.get("#userName")
+      .should("have.value", "Germán")
+      .then(() => {
+        cy.get("#userEmail").should("be.visible").type("german@gmail.com");
+        cy.get("#submit").should("be.visible").click();
+      });
   });
 });
