@@ -115,7 +115,7 @@ describe("Asserts", () => {
       });
   });
 
-  it.only("Assert length el css", () => {
+  it("Assert length el css", () => {
     cy.visit("https://www.seleniumeasy.com/test/table-pagination-demo.html");
     cy.title().should("eq", "Selenium Easy - Table with Pagination Demo");
     cy.wait(1000);
@@ -123,5 +123,23 @@ describe("Asserts", () => {
     cy.get("#myTable >tr >td")
       .should("have.length", 91)
       .and("have.css", "padding", "8px");
+  });
+
+  it.only("Contains", () => {
+    const tiempo = 1000;
+    cy.visit("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
+    cy.title().should(
+      "eq",
+      "Selenium Easy Demo - Simple Form to Automate using Selenium"
+    );
+    cy.wait(tiempo);
+
+    //Eliminando ventana
+    cy.get(".at-cm-no-button").should("be.visible").click({ force: true });
+    cy.get(".form-group > #user-message")
+      .should("be.visible")
+      .type("Demo del contenido");
+      cy.wait(tiempo);
+    cy.contains("[type='button']", "Show Message").should("be.visible").click({ force: true });
   });
 });
