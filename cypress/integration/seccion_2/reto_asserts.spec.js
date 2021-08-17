@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />;
-require("cypress-xpath");
 
 describe("Reto asserts", () => {
   it("Reto Asserts", () => {
@@ -14,14 +13,30 @@ describe("Reto asserts", () => {
     //Eliminando ventana
     cy.get(".at-cm-no-button").should("be.visible").click({ force: true });
 
+    const a = 10;
+    const b = 20 + a;
+    const total = a + b;
+
     cy.get("#sum1")
       .should("be.visible")
       .and("have.class", "form-control")
-      .type(10);
+      .type(a);
     cy.get("#sum2")
       .should("be.visible")
       .and("have.class", "form-control")
-      .type(20);
+      .type(b);
     cy.contains("[type='button']", "Get Total").click();
+
+    cy.get("#displayvalue")
+      .should("be.visible")
+      .then((e) => {
+        cy.log(e.text());
+        const res = e.text();
+        if (total == res) {
+          cy.log("Son iguales");
+        } else {
+          cy.log("El resultado es incorrecto");
+        }
+      });
   });
 });
