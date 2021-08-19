@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />;
+require("cypress-plugin-tab");
 
 describe("Campos de tipo fecha", () => {
   it("Fecha uno {esc}", () => {
@@ -26,7 +27,7 @@ describe("Campos de tipo fecha", () => {
     cy.get(".today").first().click({ force: true });
   });
 
-  it.only("Rango de fechas", () => {
+  it("Rango de fechas", () => {
     cy.visit(
       "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html"
     );
@@ -39,6 +40,25 @@ describe("Campos de tipo fecha", () => {
     cy.get("[placeholder='Start date']")
       .should("be.visible")
       .type("15/08/2021 {esc}");
-      cy.get("[placeholder='End date']").should("be.visible").type("15/08/2021 {esc}")
+    cy.get("[placeholder='End date']")
+      .should("be.visible")
+      .type("15/08/2021 {esc}");
+  });
+
+  it.only("Rango de fechas con tab", () => {
+    cy.visit(
+      "https://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html"
+    );
+    cy.title().should(
+      "eq",
+      "Selenium Easy - Best Demo website for Bootstrap Date picker"
+    );
+    cy.wait(1500);
+
+    cy.get("[placeholder='Start date']")
+      .should("be.visible")
+      .type("15/08/2021 {esc}")
+      .tab()
+      .type("15/08/2021 {esc}");
   });
 });
