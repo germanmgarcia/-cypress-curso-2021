@@ -13,7 +13,7 @@ describe("Bucles", () => {
     });
   });
 
-  it.only("Ciclo de each, click al elemeto", () => {
+  it("Ciclo de each, click al elemeto", () => {
     cy.visit("http://automationpractice.com/index.php");
     cy.title().should("eq", "My Store");
     cy.wait(1000);
@@ -25,5 +25,19 @@ describe("Bucles", () => {
         cy.wrap($el).click();
       }
     });
+  });
+
+  it.only("Ciclo de each, reto", () => {
+    const tiempo = 1500;
+    cy.visit("http://automationpractice.com/index.php");
+    cy.title().should("eq", "My Store");
+    cy.wait(1000);
+
+    for (let x = 0; x <= 3; x++) {
+      cy.get("#center_column .product-name").eq(x).click({ force: true });
+      cy.wait(tiempo);
+      cy.get("#quantity_wanted").should("be.visible").clear().type("4");
+      cy.get("#group_1").select("M").should("have.value", "2");
+    }
   });
 });
