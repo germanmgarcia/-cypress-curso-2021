@@ -11,7 +11,9 @@
 
 5. ``yarn add cypress-xpath --dev``
 
-5. TruePath / ChroPath
+6. ``yarn add cypress-file-upload --dev``
+
+7. TruePath / ChroPath
 
 ## consola cypress
 
