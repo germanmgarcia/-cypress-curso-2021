@@ -13,7 +13,9 @@
 
 6. ``yarn add cypress-file-upload --dev``
 
-7. TruePath / ChroPath
+7. ``yarn add --dev @4tw/cypress-drag-drop``
+
+8. TruePath / ChroPath
 
 ## consola cypress
 
