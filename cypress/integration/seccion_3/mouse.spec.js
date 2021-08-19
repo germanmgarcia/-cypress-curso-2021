@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />;
-require("cypress-file-upload");
 require("@4tw/cypress-drag-drop");
 
 describe("Cypress eventos Mouse", () => {
@@ -39,7 +38,7 @@ describe("Cypress eventos Mouse", () => {
       .click();
   });
 
-  it.only("Slider", () => {
+  it("Slider", () => {
     const tiempo = 1000;
     cy.visit(
       "https://www.seleniumeasy.com/test/drag-drop-range-sliders-demo.html"
