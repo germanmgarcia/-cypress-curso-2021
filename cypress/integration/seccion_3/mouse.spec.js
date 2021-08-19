@@ -24,7 +24,7 @@ describe("Cypress eventos Mouse", () => {
     cy.get("#todrag > :nth-child(5)").drag("#mydropzone", { force: true });
   });
 
-  it.only("Remove target", () => {
+  it("Mouse Over / Remove target", () => {
     const tiempo = 1000;
     cy.visit("https://way2automation.com/");
     cy.title().should(
@@ -37,5 +37,20 @@ describe("Cypress eventos Mouse", () => {
     cy.contains("Selenium Python Video Tutorials")
       .invoke("removeAttr", "target")
       .click();
+  });
+
+  it.only("Slider", () => {
+    const tiempo = 1000;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/drag-drop-range-sliders-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Drag and Drop Range Sliders");
+    cy.wait(tiempo);
+
+    cy.get("#slider1 > .range > input").invoke("attr", "value", "90");
+    cy.wait(tiempo);
+    cy.get("#slider3 > .range > input").invoke("attr", "value", "90");
+    cy.wait(tiempo);
+    cy.get("#slider5 > .range > input").invoke("attr", "value", "90");
   });
 });
