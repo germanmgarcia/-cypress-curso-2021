@@ -12,7 +12,7 @@ describe("Cypress eventos Mouse", () => {
     cy.get("#column-a").drag("#column-b", { force: true });
   });
 
-  it.only("Drag and Drop 2", () => {
+  it("Drag and Drop 2", () => {
     const tiempo = 1000;
     cy.visit("https://www.seleniumeasy.com/test/drag-and-drop-demo.html");
     cy.title().should("eq", "Selenium Easy Demo - Drag and Drop Demo");
@@ -22,5 +22,20 @@ describe("Cypress eventos Mouse", () => {
     cy.get("#todrag > :nth-child(3)").drag("#mydropzone", { force: true });
     cy.get("#todrag > :nth-child(4)").drag("#mydropzone", { force: true });
     cy.get("#todrag > :nth-child(5)").drag("#mydropzone", { force: true });
+  });
+
+  it.only("Remove target", () => {
+    const tiempo = 1000;
+    cy.visit("https://way2automation.com/");
+    cy.title().should(
+      "eq",
+      "Online Selenium Certification Course | Selenium Online Training | Selenium Tutorial"
+    );
+    cy.wait(tiempo);
+
+    cy.contains("Selenium").trigger("mouseover");
+    cy.contains("Selenium Python Video Tutorials")
+      .invoke("removeAttr", "target")
+      .click();
   });
 });
