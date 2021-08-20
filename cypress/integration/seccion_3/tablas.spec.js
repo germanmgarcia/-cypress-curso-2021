@@ -59,7 +59,7 @@ describe("Elementos de una tabla", () => {
       .click();
   });
 
-  it.only("Seleccionar por medio de Find", () => {
+  it("Seleccionar por medio de Find", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -69,5 +69,23 @@ describe("Elementos de una tabla", () => {
 
     cy.get(".btn-group").find(".btn-danger").should("contain", "Red").click();
     cy.wait(tiempo);
+  });
+
+  it.only("Seleccionar por medio de First", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    cy.get(".btn-group")
+      .find("button")
+      .first()
+      .should("contain", "Green")
+      .click({ force: true });
+    cy.wait(tiempo);
+    // Función para el último
+    cy.get(".btn-group").find("button").last().click({ force: true });
   });
 });
