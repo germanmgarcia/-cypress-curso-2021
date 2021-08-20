@@ -184,7 +184,7 @@ describe("Elementos de una tabla", () => {
     }
   });
 
-  it.only("Mostrando los campos", () => {
+  it("Mostrando los campos", () => {
     const tiempo = 1500;
     cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
     cy.title().should("eq", "Selenium Easy - Tabel Sort and Search Demo");
@@ -199,6 +199,31 @@ describe("Elementos de una tabla", () => {
         for (let i = 0; i <= datos.length; i++) {
           cy.log(datos[i]);
         }
+      });
+  });
+
+  it.only("Sumando los valores de los campos con la clase .odd", () => {
+    const tiempo = 1500;
+    cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
+    cy.title().should("eq", "Selenium Easy - Tabel Sort and Search Demo");
+    cy.wait(tiempo);
+
+    const datos = [];
+    let cantidadOdd = 0;
+    cy.get("[role='row'] td")
+      .each(($el, $index, $list) => {
+        datos[$index] = $el.text();
+      })
+      .then(() => {
+        for (let i = 0; i <= datos.length; i++) {
+        //   cy.log(datos[i]);
+          if (Number(datos[i])) {
+            cantidadOdd += Number(datos[i]);
+          }
+        }
+        cy.log("La cantidad total es: " + cantidadOdd);
+        expect(cantidadOdd).eq(394);
+        expect(cantidadOdd).to.eq(394);
       });
   });
 });
