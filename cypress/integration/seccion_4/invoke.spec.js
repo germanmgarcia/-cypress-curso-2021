@@ -15,5 +15,15 @@ describe("Manejo de Invoke", () => {
       "contain",
       "The information will be submitted to the server if it passes client side validation."
     );
+
+    cy.xpath("//label[@for='firstname'][contains(.,'First name:')]")
+      .invoke("text")
+      .as("title_name");
+    cy.wait(tiempo);
+    cy.get("@title_name")
+      .should("contain", "First name:")
+      .then(() => {
+        cy.get("#firstname").type("Germán");
+      });
   });
 });
