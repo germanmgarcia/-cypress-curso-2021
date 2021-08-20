@@ -116,7 +116,7 @@ describe("Elementos de una tabla", () => {
     cy.get("[type='button']").parent().should("have.class", "btn-group");
   });
 
-  it.only("Reto de la tablas", () => {
+  it("Reto de la tablas", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -130,12 +130,57 @@ describe("Elementos de una tabla", () => {
       .click({ force: true });
     cy.wait(tiempo);
     cy.get("[type='checkbox']").check({ force: true });
-    
+
     cy.get("[type='button']")
       .eq(4)
       .should("contain", "All")
       .click({ force: true });
-      cy.wait(tiempo);
+    cy.wait(tiempo);
     cy.get("[type='checkbox']").check({ force: true });
+  });
+
+  it("Reto de la tablas con for", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    for (let x = 0; x <= 4; x++) {
+      cy.get("[type='button']").eq(x).click({ force: true });
+      cy.wait(tiempo);
+      cy.get("[type='checkbox']").check({ force: true });
+      cy.wait(tiempo);
+    }
+  });
+
+  it.only("Reto de la tablas con for y Asserts", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    for (let x = 0; x <= 4; x++) {
+      let nombreBottom = "";
+      if (x == 1) {
+        nombreBottom = "Green";
+      } else if (x == 2) {
+        nombreBottom = "Orange";
+      } else if (x == 3) {
+        nombreBottom = "Red";
+      } else if (x == 4) {
+        nombreBottom = "All";
+      }
+      cy.get("[type='button']")
+        .eq(x)
+        .should("contain", nombreBottom)
+        .click({ force: true });
+      cy.wait(tiempo);
+      cy.get("[type='checkbox']").check({ force: true });
+      cy.wait(tiempo);
+    }
   });
 });
