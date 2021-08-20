@@ -89,7 +89,7 @@ describe("Elementos de una tabla", () => {
     cy.get(".btn-group").find("button").last().click({ force: true });
   });
 
-  it.only("Seleccionar los elementos siguiente NextAll", () => {
+  it("Seleccionar los elementos siguiente NextAll", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -103,5 +103,16 @@ describe("Elementos de una tabla", () => {
       .should("contain", "Green")
       .nextAll()
       .should("have.length", 4);
+  });
+
+  it.only("Seleccionar al elemento padre", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    cy.get("[type='button']").parent().should("have.class", "btn-group");
   });
 });
