@@ -14,6 +14,16 @@ describe("Manejo de Alias", () => {
     cy.get("@nom").type("Germán");
 
     cy.get("#surname").should("be.visible").as("app");
-    cy.get("@app").type("García");
+    cy.get("@app").type("García ------");
+
+    cy.get("#age").should("be.visible").as("edad");
+    cy.get("#country").should("be.visible").as("pais");
+    cy.get("#notes").should("be.visible").as("notas");
+
+    cy.get("@edad").type("40");
+    cy.get("@pais").select("Colombia").should("have.value", "Colombia");
+    cy.get("@notas").type("Demo del contenido");
+
+    cy.xpath("//input[contains(@type,'submit')]").click({ force: true });
   });
 });
