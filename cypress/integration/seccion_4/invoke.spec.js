@@ -82,7 +82,7 @@ describe("Manejo de Invoke", () => {
       });
   });
 
-  it.only("Invoke src", () => {
+  it("Invoke src", () => {
     const tiempo = 1000;
     cy.visit("https://www.seleniumeasy.com/test/bootstrap-modal-demo.html");
     cy.title().should(
@@ -97,5 +97,17 @@ describe("Manejo de Invoke", () => {
     )
       .invoke("attr", "src")
       .should("include", "sponsored-by-CBT.png");
+  });
+
+  it.only("Invoke src", () => {
+    const tiempo = 1000;
+    cy.visit("https://dvwa.co.uk/");
+    cy.title().should("eq", "DVWA - Damn Vulnerable Web Application");
+
+    cy.wait(tiempo);
+
+    cy.xpath("//*[@id='pagewidth']/div/div[5]/a[2]")
+      .invoke("removeAttr", "target")
+      .click({ force: true });
   });
 });
