@@ -42,7 +42,7 @@ describe("Manejo de Invoke", () => {
     );
   });
 
-  it.only("Invoke ocultar y mostrar", () => {
+  it("Invoke ocultar y mostrar", () => {
     const tiempo = 1000;
     cy.visit(
       "https://testpages.herokuapp.com/styled/validation/input-validation.html"
@@ -57,5 +57,28 @@ describe("Manejo de Invoke", () => {
     cy.get("[for='firstname']").invoke("show", "3s");
     cy.get("#firstname").invoke("show", "4s");
     cy.wait(tiempo);
+  });
+
+  it.only("Invoke ocultar y mostrar reto", () => {
+    const tiempo = 1000;
+    cy.visit(
+      "https://testpages.herokuapp.com/styled/validation/input-validation.html"
+    );
+    cy.title().should("eq", "Input Validation");
+    //ocultar campos
+    cy.get("[for='surname']").invoke("hide");
+    cy.get("#surname").invoke("hide");
+    cy.wait(tiempo);
+
+    cy.get("#firstname")
+      .should("be.visible")
+      .type("Carlos")
+      .then(() => {
+        //mostrar campos
+        cy.wait(tiempo);
+        cy.get("[for='surname']").invoke("show", "8s");
+        cy.get("#surname").invoke("show", "8s");
+        cy.get("#surname").type("Olmos Salgado");
+      });
   });
 });
