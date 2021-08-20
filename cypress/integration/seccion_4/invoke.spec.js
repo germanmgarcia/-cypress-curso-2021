@@ -27,7 +27,7 @@ describe("Manejo de Invoke", () => {
       });
   });
 
-  it.only("Invoke estilos", () => {
+  it("Invoke estilos", () => {
     const tiempo = 2000;
     cy.visit(
       "https://testpages.herokuapp.com/styled/validation/input-validation.html"
@@ -35,6 +35,27 @@ describe("Manejo de Invoke", () => {
     cy.title().should("eq", "Input Validation");
     cy.wait(tiempo);
 
-    cy.get("[for='firstname']").invoke("attr", "style", "color: Blue; font-size: 50px")
+    cy.get("[for='firstname']").invoke(
+      "attr",
+      "style",
+      "color: Blue; font-size: 50px"
+    );
+  });
+
+  it.only("Invoke ocultar y mostrar", () => {
+    const tiempo = 1000;
+    cy.visit(
+      "https://testpages.herokuapp.com/styled/validation/input-validation.html"
+    );
+    cy.title().should("eq", "Input Validation");
+    cy.wait(tiempo);
+
+    cy.get("[for='firstname']").invoke("hide");
+    cy.get("#firstname").invoke("hide");
+    cy.wait(tiempo);
+
+    cy.get("[for='firstname']").invoke("show", "3s");
+    cy.get("#firstname").invoke("show", "4s");
+    cy.wait(tiempo);
   });
 });
