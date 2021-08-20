@@ -155,7 +155,7 @@ describe("Elementos de una tabla", () => {
     }
   });
 
-  it.only("Reto de la tablas con for y Asserts", () => {
+  it("Reto de la tablas con for y Asserts", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -182,5 +182,23 @@ describe("Elementos de una tabla", () => {
       cy.get("[type='checkbox']").check({ force: true });
       cy.wait(tiempo);
     }
+  });
+
+  it.only("Mostrando los campos", () => {
+    const tiempo = 1500;
+    cy.visit("https://www.seleniumeasy.com/test/table-sort-search-demo.html");
+    cy.title().should("eq", "Selenium Easy - Tabel Sort and Search Demo");
+    cy.wait(tiempo);
+
+    const datos = [];
+    cy.get(".odd td")
+      .each(($el, $index, $list) => {
+        datos[$index] = $el.text();
+      })
+      .then(() => {
+        for (let i = 0; i <= datos.length; i++) {
+          cy.log(datos[i]);
+        }
+      });
   });
 });
