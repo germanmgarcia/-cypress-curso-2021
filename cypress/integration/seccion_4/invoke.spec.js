@@ -59,7 +59,7 @@ describe("Manejo de Invoke", () => {
     cy.wait(tiempo);
   });
 
-  it.only("Invoke ocultar y mostrar reto", () => {
+  it("Invoke ocultar y mostrar reto", () => {
     const tiempo = 1000;
     cy.visit(
       "https://testpages.herokuapp.com/styled/validation/input-validation.html"
@@ -80,5 +80,22 @@ describe("Manejo de Invoke", () => {
         cy.get("#surname").invoke("show", "8s");
         cy.get("#surname").type("Olmos Salgado");
       });
+  });
+
+  it.only("Invoke src", () => {
+    const tiempo = 1000;
+    cy.visit("https://www.seleniumeasy.com/test/bootstrap-modal-demo.html");
+    cy.title().should(
+      "eq",
+      "Selenium Easy Demo - Bootstrap Modal Demo to Automate"
+    );
+
+    cy.wait(tiempo);
+
+    cy.xpath(
+      "//img[@src='http://www.seleniumeasy.com/test/img/sponsored-by-CBT.png']"
+    )
+      .invoke("attr", "src")
+      .should("include", "sponsored-by-CBT.png");
   });
 });
