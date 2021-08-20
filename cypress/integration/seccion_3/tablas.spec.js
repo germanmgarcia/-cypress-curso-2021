@@ -20,4 +20,23 @@ describe("Elementos de una tabla", () => {
       .click({ force: true });
     cy.wait(tiempo);
   });
+
+  it.only("Seleccionar por medio de EQ", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    cy.get("[type='button']")
+      .eq(2)
+      .should("contain", "Orange")
+      .click({ force: true });
+    cy.wait(tiempo);
+    cy.get("[type='button']")
+      .eq(4)
+      .should("contain", "All")
+      .click({ force: true });
+  });
 });
