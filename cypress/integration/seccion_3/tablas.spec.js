@@ -40,7 +40,7 @@ describe("Elementos de una tabla", () => {
       .click({ force: true });
   });
 
-  it.only("Filter", () => {
+  it("Seleccionar por medio de Filter", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -57,5 +57,17 @@ describe("Elementos de una tabla", () => {
       .filter(".btn-success")
       .should("contain", "Green")
       .click();
+  });
+
+  it.only("Seleccionar por medio de Find", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    cy.get(".btn-group").find(".btn-danger").should("contain", "Red").click();
+    cy.wait(tiempo);
   });
 });
