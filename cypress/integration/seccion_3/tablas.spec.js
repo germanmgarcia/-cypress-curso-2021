@@ -105,7 +105,7 @@ describe("Elementos de una tabla", () => {
       .should("have.length", 4);
   });
 
-  it.only("Seleccionar al elemento padre", () => {
+  it("Seleccionar al elemento padre", () => {
     const tiempo = 1500;
     cy.visit(
       "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
@@ -114,5 +114,28 @@ describe("Elementos de una tabla", () => {
     cy.wait(tiempo);
 
     cy.get("[type='button']").parent().should("have.class", "btn-group");
+  });
+
+  it.only("Reto de la tablas", () => {
+    const tiempo = 1500;
+    cy.visit(
+      "https://www.seleniumeasy.com/test/table-records-filter-demo.html"
+    );
+    cy.title().should("eq", "Selenium Easy - Table Data Filter Demo");
+    cy.wait(tiempo);
+
+    cy.get("[type='button']")
+      .eq(1)
+      .should("contain", "Green")
+      .click({ force: true });
+    cy.wait(tiempo);
+    cy.get("[type='checkbox']").check({ force: true });
+    
+    cy.get("[type='button']")
+      .eq(4)
+      .should("contain", "All")
+      .click({ force: true });
+      cy.wait(tiempo);
+    cy.get("[type='checkbox']").check({ force: true });
   });
 });
