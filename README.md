@@ -51,7 +51,7 @@
 			"",
 			"describe('${1:descripcion}', () => {",
 			"\tit('${2:test}', () => {",
-			"\tconst tiempo = 2000;",
+			"\tconst tiempo = 1000;",
 			"\tcy.visit('${3:url}');",
 			"\tcy.title().should('eq', '${4:titulo}');",
 			"\tcy.wait(tiempo);",
