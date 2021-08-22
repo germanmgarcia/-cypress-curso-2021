@@ -50,7 +50,7 @@ Cypress.Commands.add("click_force_xpath", (selector, tiempo) => {
 });
 
 Cypress.Commands.add(
-  "bloque_reto_custom2",
+  "bloque_reto_custom",
   (
     name,
     lasName,
@@ -115,3 +115,15 @@ Cypress.Commands.add(
     });
   }
 );
+
+Cypress.Commands.add("validar_campo", (selector, mensaje, nombre_campo, tiempo) => {
+  cy.xpath(selector)
+    .should("be.visible")
+    .should("contain", mensaje)
+    .then(() => {
+      cy.log("#########");
+      cy.log("El " + nombre_campo + " no es valido");
+      cy.log("#########");
+    });
+  cy.wait(tiempo);
+});

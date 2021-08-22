@@ -16,8 +16,30 @@ describe("Reto cypress por medio de comandos personalizados", () => {
   Cypress.on("uncaught:exception", (err, runnable) => {
     return false;
   });
-  it("test", () => {
-    cy.bloque_reto_custom2(
+  it("Prueba Validar Email", () => {
+    cy.bloque_reto_custom(
+      "Germán",
+      "García",
+      "5",
+      "5548748652",
+      "bogota c#",
+      "bogota",
+      "Alabama",
+      "07895",
+      "demo.com",
+      "Proyecto demo uni",
+      tiempo
+    );
+    cy.validar_campo(
+      "//small[@class='help-block'][contains(.,'Please supply a valid email address')]",
+      "Please supply a valid email address",
+      "Email",
+      tiempo
+    );
+  });
+
+  it("Prueba Ok", () => {
+    cy.bloque_reto_custom(
       "Germán",
       "García",
       "gmgarcia@gmail.com",
