@@ -2,13 +2,13 @@
 require("cypress-xpath");
 
 describe("Tipos de Selectores", () => {
-  it("Selector por Id", () => {
+  it.only("Selector por Id", () => {
     cy.visit("https://demoqa.com/text-box");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
 
     //selector por Id
-    cy.get("#userName").should("be.visible").type("Germán");
+    cy.get("#userName").should("be.visible", { timeout: 5000 }).type("Germán");
     cy.get("#userEmail").should("be.visible").type("demo@gmail.com");
   });
 
@@ -48,7 +48,7 @@ describe("Tipos de Selectores", () => {
     cy.get(".custom-control-label").contains("Other").click();
   });
 
-  it.only("Selector por copy_selector", () => {
+  it("Selector por copy_selector", () => {
     cy.visit("https://demoqa.com/automation-practice-form");
     cy.title().should("eq", "ToolsQA");
     cy.wait(1000);
