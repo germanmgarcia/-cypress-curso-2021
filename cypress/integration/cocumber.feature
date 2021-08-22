@@ -4,7 +4,9 @@ Feature: Demo de Cucumber
 
     Scenario: Demo de Cocumber 
     Given Abrir el navegador principal
-    When Cargando el nombre
-    When Cargando el email
-    And Cargando la Dirección
-    Then Validar el nombre
+    When Cargando el nombre juan
+    When Cargando el email demo@gmail.com
+    And Cargando la Dirección demo dirección_uno
+    And Cargando la Dirección Dos demo dirección_dos
+    And Click en el botón
+    Then Validar el nombre de la página
