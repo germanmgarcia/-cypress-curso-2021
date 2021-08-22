@@ -64,6 +64,8 @@ Cypress.Commands.add(
     project,
     tiempo
   ) => {
+
+
     cy.xpath("//input[contains(@name,'first_name')]")
       .clear()
       .should("be.visible")
@@ -79,6 +81,8 @@ Cypress.Commands.add(
       .should("be.visible")
       .type(email);
     cy.wait(tiempo);
+
+
     cy.xpath("//input[contains(@name,'phone')]")
       .clear()
       .should("be.visible")
@@ -98,6 +102,8 @@ Cypress.Commands.add(
       force: true,
     });
     cy.wait(tiempo);
+
+    
     cy.xpath("//input[contains(@name,'zip')]").should("be.visible").type(cp);
     cy.wait(tiempo);
     cy.xpath("//input[contains(@name,'website')]")
