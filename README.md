@@ -61,3 +61,33 @@
 		"description": "Plantilla Cypress"
 	}
 ```
+
+```json
+	"Plantilla_cypress": {
+		"prefix": "c_plantilla_cypress",
+		"body": [
+			"/// <reference types='Cypress' />;",
+			"",
+			"require('cypress-xpath');",
+			"require('cypress-plugin-tab');",
+			"require('@4tw/cypress-drag-drop');",
+			"require('cypress-file-upload');",
+			"",
+			"",
+			"describe('${1:descripcion}', () => {",
+			"\tconst tiempo = 1000;",
+			"\tbefore(() => {",
+			"\t\tcy.visit('${2:url}');",
+			"\t\tcy.title().should('eq', '${3:titulo}');",
+			"\t\tcy.wait(tiempo);",
+			"\t})",
+			"\tit('${4:test}', () => {",			
+			"\t\tcy.visit('${5:url}');",
+			"\t\tcy.title().should('eq', '${6:titulo}');",
+			"\t\tcy.wait(tiempo);",
+			"\t})",
+			"});"
+		],
+		"description": "Plantilla Cypress"
+	}
+```
