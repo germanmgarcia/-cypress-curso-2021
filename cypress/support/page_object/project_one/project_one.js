@@ -17,7 +17,7 @@ class Project_One {
       .clear()
       .should("be.visible")
       .type(name);
-    cy.wait(tiempo);
+    cy.screenshot("Campo Nombre")
     cy.xpath("//input[contains(@name,'last_name')]")
       .clear()
       .should("be.visible")

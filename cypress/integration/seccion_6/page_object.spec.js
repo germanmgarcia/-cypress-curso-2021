@@ -9,7 +9,7 @@ require("cypress-file-upload");
 describe("Page Objects Models", () => {
   const project_one = new Project_One();
   project_one.visitHome();
-  it("Test Sección Uno", () => {
+  it.only("Test Sección Uno", () => {
     project_one.SeccionUno("Germán", "García", "demo@gmail.com", 1000);
   });
 
