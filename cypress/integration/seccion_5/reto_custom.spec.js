@@ -38,7 +38,7 @@ describe("Reto cypress por medio de comandos personalizados", () => {
     );
   });
 
-  it("Prueba Ok", () => {
+  it.only("Prueba Ok", () => {
     cy.bloque_reto_custom(
       "Germán",
       "García",
