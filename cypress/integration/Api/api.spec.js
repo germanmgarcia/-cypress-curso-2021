@@ -12,7 +12,7 @@ describe("Api consultas", () => {
     datos.its("status").should("equal", 200);
   });
 
-  it.only("Test Api comparado consulta", () => {
+  it("Test Api comparado consulta GET", () => {
     cy.request({
       method: "GET",
       url: "https://rickandmortyapi.com/api/episode",
@@ -25,6 +25,20 @@ describe("Api consultas", () => {
       cy.log(datos);
 
       expect(datos.results[0]).has.property("name", "Pilot");
+    });
+  });
+
+  it("Test Api POST", () => {
+    cy.request({
+      method: "POST",
+      url: "http://localhost:3000/posts",
+      body: {
+        id: 4,
+        title: "Insertando un valor",
+        author: "Germán",
+      },
+    }).then((response) => {
+      expect(response.status).to.eql(201);
     });
   });
 });
