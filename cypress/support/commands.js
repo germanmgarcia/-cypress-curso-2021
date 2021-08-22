@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("texto_visible", (selector, texto, tiempo) => {
+  cy.get(selector).should("be.visible").type(texto);
+  cy.wait(tiempo);
+});
