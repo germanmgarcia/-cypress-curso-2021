@@ -17,6 +17,8 @@
 
 8. TruePath / ChroPath
 
+9. ``yarn add --dev cypress-cucumber-preprocessor``
+
 ## consola cypress
 
 - ``node_modules/.bin/cypress run`` Correrlo sin el navegador
