@@ -28,3 +28,36 @@
 - ``yarn cypress run --spec "cypress\integration\seccion_2\asserts.spec.js"`` Correr una prueba en específico
 
 - ``yarn cypress run --spec "cypress\integration\seccion_1\*"`` Correr todas las pruebas de una sola sección
+
+## Plantilla Cypress (VSC)
+
+- Ctrl + p
+
+- > snippets - Configuration
+
+- JavaScript
+
+``
+	"Plantilla_cypress": {
+		"prefix": "c_plantilla_cypress",
+		"body": [
+			"/// <reference types='Cypress' />;",
+			"",
+			"require('cypress-xpath');",
+			"require('cypress-plugin-tab');",
+			"require('@4tw/cypress-drag-drop');",
+			"require('cypress-file-upload');",
+			"",
+			"",
+			"describe('${1:descripcion}', () => {",
+			"\tit('${2:test}', () => {",
+			"\tconst tiempo = 2000;",
+			"\tcy.visit('${3:url}');",
+			"\tcy.title().should('eq', '${4:titulo}');",
+			"\tcy.wait(tiempo);",
+			"\t})",
+			"});"
+		],
+		"description": "Plantilla Cypress"
+	}
+``

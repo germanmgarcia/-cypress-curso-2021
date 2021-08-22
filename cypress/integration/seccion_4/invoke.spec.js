@@ -99,7 +99,7 @@ describe("Manejo de Invoke", () => {
       .should("include", "sponsored-by-CBT.png");
   });
 
-  it.only("Invoke src", () => {
+  it("Invoke src", () => {
     const tiempo = 1000;
     cy.visit("https://dvwa.co.uk/");
     cy.title().should("eq", "DVWA - Damn Vulnerable Web Application");
