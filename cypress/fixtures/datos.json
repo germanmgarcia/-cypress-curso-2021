@@ -1,6 +1,20 @@
-{
-  "nombre": "Germán",
-  "email": "demo@gmail.com",
-  "direccion1": "Dirección uno",
-  "direccion2": "Dirección dos"
-}
+[
+  {
+    "nombre": "Germán",
+    "email": "demo@gmail.com",
+    "direccion1": "Dirección uno",
+    "direccion2": "Dirección dos"
+  },
+  {
+    "nombre": "Germán2",
+    "email": "demo2@gmail.com",
+    "direccion1": "Dirección uno2",
+    "direccion2": "Dirección dos2"
+  },
+  {
+    "nombre": "Germán3",
+    "email": "demo3@gmail.com",
+    "direccion1": "Dirección uno2",
+    "direccion2": "Dirección dos2"
+  }
+]
