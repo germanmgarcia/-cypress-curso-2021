@@ -37,7 +37,7 @@
 
 - JavaScript
 
-``
+```json
 	"Plantilla_cypress": {
 		"prefix": "c_plantilla_cypress",
 		"body": [
@@ -60,4 +60,4 @@
 		],
 		"description": "Plantilla Cypress"
 	}
-``
+```
