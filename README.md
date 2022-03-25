@@ -23,7 +23,7 @@
 
 - ``node_modules/.bin/cypress run`` Correrlo sin el navegador
 
-- ``yarn cypress run --header`` Correrlo desde el navegador
+- ``yarn cypress run --headed`` Correrlo desde el navegador
 
 - ``yarn cypress run --browser chrome`` Correr todos lo ejemplo con el navegador chrome
 
